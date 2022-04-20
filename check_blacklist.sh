@@ -128,7 +128,7 @@ do
                 result=`host $reverse.$i`
                 if [[ $result == *"127"* ]]
                 then
-                        echo "$i [LISTED]"
+                        echo "$j $i [LISTED]"
                         echo "$j $i [LISTED]" >> $tmp
                 else
                         echo "$j $i [OK]"
