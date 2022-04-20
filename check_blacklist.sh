@@ -123,7 +123,6 @@ for i in $blacklist
 do
         for j in $ip
         do
-                echo $j
                 reverse=`echo $j | awk -F. '{print $4"."$3"." $2"."$1}'`
                 result=`host $reverse.$i`
                 if [[ $result == *"127"* ]]
