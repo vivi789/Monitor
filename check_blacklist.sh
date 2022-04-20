@@ -136,7 +136,7 @@ do
 done
 
 # send email
-if [ -s test.txt ]
+if [ -s $tmp ]
 then
         sort $tmp | mail -s "[$(hostname)] Check Blacklist IPs" support.team@vinahost.vn
 fi
