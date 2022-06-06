@@ -13,4 +13,4 @@ echo "LOAD: $(uptime | awk -F ":" {'print $5'})"
 echo "RAM: $(free -h | grep -vE "total|Swap" | awk {'print $3"/"$2'})"
 echo "SWAP: $(free -h | grep -vE "total|Mem" | awk {'print $3"/"$2'})"
 echo "DISK:"
-df -h | grep -vE "tmpfs|Filesystem|udev|boot|tmp" | awk {'print $3"/"$2"   "$5"   "$6'}
+df -h | grep -vE '^Filesystem|tmpfs|cdrom' | awk '{ print $3"/"$2" "$5 " " $1 }'
