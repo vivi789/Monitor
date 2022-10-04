@@ -125,7 +125,7 @@ do
         do
                 reverse=`echo $j | awk -F. '{print $4"."$3"." $2"."$1}'`
                 result=`host $reverse.$i`
-                if [[ $result == *"127"* ]]
+                if [[ $result == *"127.0.0.2"* ]]
                 then
                         echo "$j $i [LISTED]"
                         echo "$j $i [LISTED]" >> $tmp
@@ -134,10 +134,3 @@ do
                 fi
         done
 done
-
-# send email
-if [ -s $tmp ]
-then
-        sort $tmp | mail -s "[$(hostname)] Check Blacklist IPs" support.team@vinahost.vn
-fi
-rm -f $tmp
