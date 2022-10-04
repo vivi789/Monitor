@@ -116,7 +116,7 @@ zen.spamhaus.org
 z.mailspike.net
 zombie.dnsbl.sorbs.net
 "
-tmp=`mktemp`
+#tmp=`mktemp`
 ip=`/usr/sbin/ip a | grep inet | grep -Ev "inet6|127.0.0.1" | awk  {'print $2'} | cut -d "/" -f 1`
 
 for i in $blacklist
@@ -128,7 +128,7 @@ do
                 if [[ $result == *"127.0.0.2"* ]]
                 then
                         echo "$j $i [LISTED]"
-                        echo "$j $i [LISTED]" >> $tmp
+                        #echo "$j $i [LISTED]" >> $tmp
                 else
                         echo "$j $i [OK]"
                 fi
